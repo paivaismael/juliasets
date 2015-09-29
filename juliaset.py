@@ -22,7 +22,8 @@ class JuliaSet(object):
 
     def set_spacing(self,d):
         self._d=d
-        self._complexplane=[complex(x,y) for x in range(-2*int(1/self._d),2*int(1/self._d),1) for y in range(-2*int(1/self._d),2*int(1/self._d),1)]
+        t=[r*self._d for r in range(-2*int(1/self._d),2*int(1/self._d),1)]
+        self._complexplane=[complex(x,y) for x in t for y in t]
 
     def generate(self):
         self.set=[self.iterate(a) for a in self._complexplane]
